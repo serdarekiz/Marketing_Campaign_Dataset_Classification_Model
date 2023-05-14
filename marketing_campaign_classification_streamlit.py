@@ -9,7 +9,7 @@ import pickle
 st.set_page_config(page_title="Campaign Response Estimation Model")
 
 st.write("## Marketing Campaign Dataset - Classification Analysis")
-df = pd.read_csv(r"C:\Users\Asus\Desktop\kodluyoruz\hafta_3\marketing_campaign.csv", sep="\t")
+df = pd.read_csv(r"marketing_campaign.csv", sep="\t")
 
 for i in range(len(df["Dt_Customer"])):
     # just year values
@@ -70,7 +70,7 @@ if add_radio == "Data Preview":
 
     st.write('drop some columns because of constant value ("Z_CostContact", "Z_Revenue") and highly imbalanced ("Complain") and unnecessary column ("ID")')
 
-    image = Image.open(r"C:\Users\Asus\Desktop\kodluyoruz\hafta_3\feature_importance.png")
+    image = Image.open(r"feature_importance.png")
     st.image(image ,width=800)
     st.write(" #### The Best 18 Determinative Variables For Marketing Campaign Preference")
     
@@ -149,7 +149,7 @@ if add_radio == "Campaign Response Estimation":
     df.drop(labels = ["ID", "Complain", "Z_CostContact", "Z_Revenue"],inplace=True, axis=1)
     df.drop("Response", inplace=True,axis=1)
     
-    target = open(r"C:\Users\Asus\Desktop\kodluyoruz\hafta_3\Target_Encoder.sav", 'rb')
+    target = open(r"Target_Encoder.sav", 'rb')
     target_encoder = pd.read_pickle(target)
     #target_encoder = pickle.load(open(r"Target_Encoder.sav", 'rb'))
     
@@ -160,7 +160,7 @@ if add_radio == "Campaign Response Estimation":
 
     # Load already trained model (XGBoost)
     
-    model = open(r"C:\Users\Asus\Desktop\kodluyoruz\hafta_3\classification_model.sav", 'rb')
+    model = open(r"classification_model.sav", 'rb')
     lr = pd.read_pickle(model)
     #lr = pickle.load(open(r"regression_model.sav", 'rb'))
     
@@ -169,19 +169,19 @@ if add_radio == "Campaign Response Estimation":
     st.write("### If customer accept the campaign, value is 1, else 0:")
     st.title(str(np.round(ypred[0])))
 
-    image = Image.open(r"C:\Users\Asus\Desktop\kodluyoruz\hafta_3\img.png")
+    image = Image.open(r"img.png")
     st.image(image ,width=800)
     
     st.write("### The Results of XGBClassifier Model")
     
     st.write('#### Classification Report')
-    image = Image.open(r"C:\Users\Asus\Desktop\kodluyoruz\hafta_3\classification_report.png")
+    image = Image.open(r"classification_report.png")
     st.image(image ,width=800)
     
     st.write('#### Confusion Matrix')
-    image = Image.open(r"C:\Users\Asus\Desktop\kodluyoruz\hafta_3\confusion_matrix.png")
+    image = Image.open(r"confusion_matrix.png")
     st.image(image ,width=800)
     
     st.write('#### ROC Curve')
-    image = Image.open(r"C:\Users\Asus\Desktop\kodluyoruz\hafta_3\roc_curve.png")
+    image = Image.open(r"roc_curve.png")
     st.image(image ,width=800)
