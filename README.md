@@ -17,4 +17,4 @@ You can download to your computer and examine it.
 ## Presentatiton
 The model results were presented using Streamlit at the link below
 
-[Streamlit](https://serdarekiz-house-price-dataset-reg-house-price-streamlit-11b3vp.streamlit.app/)
+[Streamlit](https://serdarekiz-m-marketing-campaign-classification-streamlit-iaanbz.streamlit.app/)
